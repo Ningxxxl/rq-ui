@@ -148,7 +148,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean isPhoneExist(String phone) {
-        return false;
+        return userRepository.selectByPhone(phone) != null;
     }
 
     @Override

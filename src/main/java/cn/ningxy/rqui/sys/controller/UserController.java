@@ -85,12 +85,12 @@ public class UserController {
      */
     @RequestMapping(method = RequestMethod.PUT, path = "/{username}/profile")
     public void updateUserProfile(@RequestBody UserVO userVO) {
-        if (isNotRoleAdmin()) {
-            // 普通用户只能操作自己的信息
-            isOperateMyself(userVO.getUserName());
-            // 普通用户不能自行修改权限
-            userVO.setRole(null);
-        }
+//        if (isNotRoleAdmin()) {
+//            // 普通用户只能操作自己的信息
+//            isOperateMyself(userVO.getUserName());
+//            // 普通用户不能自行修改权限
+//            userVO.setRole(null);
+//        }
         if (!userService.update(userVO.toEntity())) {
             throw new RuntimeException("更新失败。");
         }

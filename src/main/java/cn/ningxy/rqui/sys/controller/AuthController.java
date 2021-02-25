@@ -114,7 +114,7 @@ public class AuthController {
 
         final String username = StringGenerator.randomUsername();
         User user = User.builder()
-                .userName(username)
+                .userName(phoneInput)
                 .phone(phoneInput)
                 .pwd(passwordInput)
                 .build();

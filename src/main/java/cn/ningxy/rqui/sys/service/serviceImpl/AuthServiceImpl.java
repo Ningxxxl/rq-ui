@@ -84,9 +84,10 @@ public class AuthServiceImpl implements AuthService {
     public boolean register(User user, String captcha) {
         final String username = user.getUsername();
         final String phoneNumber = user.getPhone();
-        if (!verifyCaptcha(phoneNumber, captcha, AuthConstants.REDIS_PREFIX_REGISTER, true)) {
-            throw new RuntimeException("验证码有误。");
-        } else if (userService.isUsernameExist(username) || userService.isPhoneExist(phoneNumber)) {
+//        if (!verifyCaptcha(phoneNumber, captcha, AuthConstants.REDIS_PREFIX_REGISTER, true)) {
+//            throw new RuntimeException("验证码有误。");
+//        } else
+        if (userService.isUsernameExist(username) || userService.isPhoneExist(phoneNumber)) {
             throw new RuntimeException("用户已存在。");
         }
         return userService.signUp(user);
